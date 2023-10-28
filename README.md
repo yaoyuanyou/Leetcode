@@ -1,1 +1,1 @@
-Solutions of Leetcode problems
+Solutions of Leetcode problems. Basically in Python:)
