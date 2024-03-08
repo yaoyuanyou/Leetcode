@@ -12,3 +12,13 @@ FROM (
     GROUP BY machine_id, activity_type
 ) a
 GROUP BY machine_id;
+
+
+# A faster query
+SELECT machine_id,
+    ROUND(AVG(CASE
+            WHEN activity_type = 'start' THEN -timestamp
+            ELSE timestamp
+            END) * 2, 3) AS processing_time
+FROM Activity
+GROUP BY machine_id;
