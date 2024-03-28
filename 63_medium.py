@@ -26,9 +26,10 @@ class Solution:
 
         return self.uniquePathsWithObstacles([obstacleGrid[x][1:] for x in range(m)]) + self.uniquePathsWithObstacles(obstacleGrid[1:])
 
-#Leetcode NOT accepted, but works fine at local.
+#not fast either
 class Solution:
-    dp = dict()
+    def __init__(self):
+        self.dp = dict()
     def uniquePathsWithObstacles(self, obstacleGrid: list[list[int]]) -> int:
         m, n = len(obstacleGrid), len(obstacleGrid[0])
         if m == 1 and n == 1:
