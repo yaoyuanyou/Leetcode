@@ -1,0 +1,1 @@
+#Initialclass Solution:    def numIdenticalPairs(self, nums: list[int]) -> int:        res = 0        length = len(nums)                for i in range(length):            j = i + 1            while j < length:                if nums[i] == nums[j]:                    res += 1                j += 1        return res        print(Solution().numIdenticalPairs([1,2,3]))
