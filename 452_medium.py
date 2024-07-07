@@ -47,3 +47,54 @@ class Solution:
                     if prev == i or nums[i]*nums[prev]<0: 
                         break
         return False
+
+#Optimization Space Complexity O(1)
+class Solution:
+    def circularArrayLoop(self, nums: List[int]) -> bool:
+        n = len(nums)
+        def next_index(idx, lst = nums):
+            return (idx + lst[idx]) % n
+
+        for i in range(n):
+            if isinstance(nums[i], int):
+                index = i
+                if nums[i] > 0:
+                    while True:
+                        nxt_idx = next_index(index)
+        
+                        if nums[nxt_idx] == str(i):
+                            return True
+                        elif isinstance(nums[nxt_idx], str):
+                            nums[index] = str(i)
+                            break
+                        else:
+                            if nums[nxt_idx] < 0 or nxt_idx == index:
+                                nums[index] = str(i)
+                                break   
+
+                            nums[index] = str(i)
+                            index = nxt_idx
+
+
+
+                else:
+                    while True:
+                        nxt_idx = next_index(index)
+                        
+                        if nums[nxt_idx] == str(i):
+                            return True
+                        elif isinstance(nums[nxt_idx], str):
+                            nums[nxt_idx] = str(i)
+                            break
+                        else:
+                            if nums[nxt_idx] > 0 or nxt_idx == index:
+                                nums[index] = str(i)
+                                break   
+
+                            nums[index] = str(i)
+                            index = nxt_idx
+                        
+                        
+
+        return False
+                            
